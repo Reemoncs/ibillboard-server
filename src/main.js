@@ -15,7 +15,7 @@ const trackRequest = async (context, req, resp) => {
 
         await logger.requestLog(req.method(), req.url(), body)
 
-        if(body.count !== undefined) {
+        if(body.count !== undefined && Number.isInteger(body.count)) {
             await redis.incrementBy('count', body.count)
         }
     } catch (e) {
