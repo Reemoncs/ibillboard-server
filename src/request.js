@@ -1,4 +1,5 @@
 const { InvalidJsonFormat } = require('./exceptions')
+const url = require('url')
 
 module.exports = class Request {
     constructor(req) {
@@ -28,7 +29,7 @@ module.exports = class Request {
     }
 
     url() {
-        return this.get('url')
+        return url.parse(this.get('url')).pathname
     }
 
     get(param) {

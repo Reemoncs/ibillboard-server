@@ -102,3 +102,13 @@ test('jsonBody throws exception on invalid json string', async () => {
         expect(e.toString()).toMatch('Body is not a valid json string!');
     }
 });
+
+test('url returns plain pathname without query params', () => {
+    const reqStub = {
+        method: 'GET',
+        url: '/track?test=test&test1=test1'
+    }
+
+    const req = new Request(reqStub)
+    expect(req.url()).toMatch('/track');
+});
