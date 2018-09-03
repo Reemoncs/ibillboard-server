@@ -35,4 +35,8 @@ Run tests with coverage calculation
 npm run coverage
 ```
 
+## Tested on
+Node v8.7.0
+Npm v5.4.2
+
 
